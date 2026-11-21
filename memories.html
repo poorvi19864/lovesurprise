@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Beautiful Memories ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Our Beautiful Memories ❤️</h1>
+
+        <h2>YAYYYY! I KNEW YOU LOVE ME! 🥹💗</h2>
+
+        <p>You just made me the happiest person! 🤍</p>
+
+        <p>Every moment with you is special 🥺</p>
+        <div class="scrapbook-title">
+    <span>🌷</span>
+    <span>Our Little Memory Book</span>
+    <span>🧸</span>
+</div>
+
+        <!-- Photo Gallery -->
+
+        <div class="photos">
+
+            <div class="polaroid">
+                <img class="memory-photo"
+                     src="images/photo1.jpeg"
+                     alt="Our memory">
+                <p>My favourite memory 💗</p>
+            </div>
+
+            <div class="polaroid">
+                <img class="memory-photo"
+                     src="images/photo2.jpeg"
+                     alt="Our memory">
+                <p>My favourite person 🥹</p>
+            </div>
+
+            <div class="polaroid">
+                <img class="memory-photo"
+                     src="images/photo3.jpeg"
+                     alt="Our memory">
+                <p>Forever us ❤️</p>
+            </div>
+
+            <div class="polaroid">
+                <img class="memory-photo"
+                     src="images/photo4.jpeg"
+                     alt="Our memory">
+                <p>Favourite place of mine to be ❤️</p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="love-letter">
+    <h2>A Little Something For You 💌</h2>
+
+    <button onclick="window.location.href='letter.html'">
+        Open My Letter ❤️
+    </button>
+</div>
+    <div class="floating-hearts"></div>
+
+    <!-- Enlarged Photo Popup -->
+
+    <div id="photoPopup" class="photo-popup">
+
+        <span id="closePopup">&times;</span>
+
+        <img id="popupImage" src="" alt="Enlarged memory">
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script>
+
+        const photos = document.querySelectorAll(".memory-photo");
+
+        const popup = document.getElementById("photoPopup");
+
+        const popupImage = document.getElementById("popupImage");
+
+        const closePopup = document.getElementById("closePopup");
+
+        // Open enlarged photo
+
+        photos.forEach(function(photo) {
+
+            photo.addEventListener("click", function() {
+
+                popupImage.src = photo.src;
+
+                popup.style.display = "flex";
+
+            });
+
+        });
+
+        // Close using X
+
+        closePopup.addEventListener("click", function() {
+
+            popup.style.display = "none";
+
+        });
+
+        // Close by clicking outside the photo
+
+        popup.addEventListener("click", function(event) {
+
+            if (event.target === popup) {
+
+                popup.style.display = "none";
+
+            }
+
+        });
+        // Floating hearts
+const heartContainer = document.querySelector(".floating-hearts");
+
+const heartSymbols = ["❤️", "💕", "💗", "💖", "💘"];
+
+function createHeart() {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.innerHTML =
+        heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+    heartContainer.appendChild(heart);
+
+    heart.addEventListener("animationend", function() {
+        heart.remove();
+    });
+}
+
+setInterval(createHeart, 700);
+
+
+
+    </script>
+    <script>
+    if (sessionStorage.getItem("loveUnlocked") !== "true") {
+        window.location.replace("index.html");
+    }
+</script>
+
+</body>
+</html>

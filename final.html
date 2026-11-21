@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forever & Always ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffd6e7, #ff9ebd, #ffc4d6);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .final-card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 25px;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 35px rgba(150, 40, 80, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #d6336c;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            font-size: 65px;
+            margin: 15px 0;
+            animation: beat 1s infinite;
+        }
+
+        p {
+            color: #71334b;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        button {
+            background: #e84375;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #c72c60;
+            transform: scale(1.06);
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -30px;
+            font-size: 22px;
+            animation: float 7s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes beat {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="final-card">
+
+        <h1>Our Story Doesn't End Here ❤️</h1>
+
+        <div class="heart">💗</div>
+
+        <p>
+            Thank you for being my favourite part
+            of every day.
+
+            <br><br>
+
+            No matter how many pages this website has,
+            my favourite chapter will always be
+            the one where I have you. 🥹
+
+            <br><br>
+
+            Forever and always. ❤️
+        </p>
+
+        <button onclick="window.location.href='proposal.html'">
+            Experience Our Story again❤️
+        </button>
+
+    </div>
+
+    <script>
+        if (sessionStorage.getItem("loveUnlocked") !== "true") {
+            window.location.replace("index.html");
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "floating-heart";
+            heart.innerHTML = "💗";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>

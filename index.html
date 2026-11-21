@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="password-screen">
+        <h1>Hey You! ❤️</h1>
+        <p>This little world is only for you 🥺</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter our secret password"
+        >
+
+        <button onclick="checkPassword()">Unlock ❤️</button>
+
+        <p id="passwordMessage"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password =
+                document.getElementById("passwordInput").value;
+
+            if (password === "SHRI190226") {
+                sessionStorage.setItem("loveUnlocked", "true");
+                window.location.href = "player.html";
+            } else {
+                document.getElementById("passwordMessage").innerText =
+                    "Oops! Wrong password 🥺 Try again!";
+            }
+        } 
+    </script>
+
+</body>
+<div class="floating-hearts">
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>🌸</span>
+</div>
+</html>

@@ -1,0 +1,750 @@
+/* =================================
+   LOVE SURPRISE - COMPLETE CSS
+================================= */
+
+/* BASIC RESET */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #ffd6e7, #f7a8c9);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* MAIN WHITE CARD */
+.container {
+    position: relative;
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    padding: 40px 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(150, 50, 90, 0.2);
+}
+
+/* HEADINGS */
+h1 {
+    color: #e754af;
+    font-size: 32px;
+}
+
+h2 {
+    color: #d6336c;
+}
+
+p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff4d88;
+    color: white;
+}
+
+#noBtn {
+    background: #eeeeee;
+    color: #333;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+#message {
+    margin-top: 25px;
+}
+
+/* SCRAPBOOK TITLE */
+.scrapbook-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+    color: #d6336c;
+    font-family: cursive;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* PHOTO GALLERY */
+.gallery {
+    margin-top: 35px;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px 20px;
+    padding: 15px 0;
+}
+
+/* POLAROID PHOTO FRAMES */
+.polaroid {
+    position: relative;
+    background: #fffaf0;
+    padding: 12px 12px 22px;
+    width: 160px;
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+/* ALTERNATING PHOTO ANGLES */
+.polaroid:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.polaroid:nth-child(3n) {
+    transform: rotate(-2deg);
+}
+
+/* HOVER EFFECT */
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.07);
+    z-index: 10;
+}
+
+/* PHOTO IMAGE */
+.polaroid img {
+    width: 100%;
+    height: 150px;
+    display: block;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* PHOTO CAPTIONS */
+.polaroid p {
+    margin-top: 12px;
+    margin-bottom: 0;
+    color: #795548;
+    font-family: cursive;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* CLICKABLE PHOTOS */
+.memory-photo {
+    cursor: pointer;
+}
+
+/* SCRAPBOOK TAPE */
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 35%;
+    width: 65px;
+    height: 22px;
+    background: rgba(255, 192, 203, 0.7);
+    transform: rotate(-8deg);
+    z-index: 2;
+}
+
+/* HEART STICKERS */
+.polaroid::after {
+    content: "♡";
+    position: absolute;
+    top: -17px;
+    right: 8px;
+    font-size: 30px;
+    color: #ff6b9a;
+    transform: rotate(15deg);
+    z-index: 3;
+}
+
+/* =================================
+   ENLARGED PHOTO POPUP
+================================= */
+
+.photo-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+
+    background-color: #ffd6e7;
+
+    /* GLITTER SCRAPBOOK BACKGROUND */
+    background-image:
+        radial-gradient(circle, white 1.5px, transparent 2px),
+        radial-gradient(circle, #ff69b4 1px, transparent 2px),
+        radial-gradient(circle, #fff5fa 2px, transparent 3px);
+
+    background-size: 35px 35px, 50px 50px, 65px 65px;
+
+    animation: glitter 3s linear infinite;
+}
+
+/* ENLARGED PHOTO FRAME */
+.photo-popup img {
+    max-width: 85%;
+    max-height: 75vh;
+    object-fit: contain;
+    padding: 12px;
+    background: white;
+    border: 3px solid #ffb6d5;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 30px #ff69b4,
+        0 0 50px #ffc0cb;
+}
+
+/* CLOSE BUTTON */
+#closePopup {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: #d6336c;
+    font-size: 45px;
+    cursor: pointer;
+    z-index: 1001;
+    line-height: 1;
+}
+
+/* GLITTER ANIMATION */
+@keyframes glitter {
+    from {
+        background-position: 0 0, 10px 20px, 20px 10px;
+    }
+
+    to {
+        background-position: 35px 35px, 60px 70px, 85px 75px;
+    }
+}
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    font-size: 24px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .photos {
+        gap: 22px 12px;
+    }
+
+    .polaroid {
+        width: 145px;
+        padding: 10px 10px 18px;
+    }
+
+    .polaroid img {
+        height: 135px;
+    }
+
+    .scrapbook-title {
+        font-size: 18px;
+    }
+
+    .photo-popup img {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+
+    #closePopup {
+        right: 18px;
+        top: 10px;
+    }
+}
+/* ROMANTIC LETTER PAGE */
+
+.letter-page {
+    background: linear-gradient(135deg, #ffd6e7, #f7a8c9);
+    padding: 30px 15px;
+}
+
+.letter-paper {
+    background: #fffaf0;
+    max-width: 600px;
+    width: 95%;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(150, 50, 90, 0.2);
+    border: 2px solid #ffc0cb;
+    animation: letterOpen 1s ease;
+}
+
+.letter-paper h1 {
+    font-family: cursive;
+    color: #d6336c;
+}
+
+.letter-paper p {
+    font-family: cursive;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #795548;
+    text-align: left;
+}
+
+.letter-paper h2 {
+    font-family: cursive;
+    color: #e754af;
+}
+
+.letter-decoration {
+    color: #e754af;
+    font-family: cursive;
+    font-size: 20px;
+    margin: 15px;
+}
+
+@keyframes letterOpen {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* =================================
+   VINTAGE LOVE LETTER PAGE
+================================= */
+
+.letter-page {
+    background: linear-gradient(135deg, #f8dce2, #eab7c2);
+    padding: 35px 15px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.letter-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.letter-container > h1 {
+    font-family: cursive;
+    color: #9e405d;
+    font-size: 29px;
+}
+
+.letter-subtitle {
+    font-family: cursive;
+    color: #80515c;
+}
+
+/* ENVELOPE STAGE */
+
+.envelope-stage {
+    position: relative;
+    width: 320px;
+    max-width: 90%;
+    height: 225px;
+    margin: 65px auto 20px;
+    perspective: 1000px;
+}
+
+.envelope {
+    position: absolute;
+    inset: 0;
+    background: #dcae87;
+    border-radius: 5px;
+}
+
+/* BACK OF ENVELOPE */
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #e7c49e;
+    border: 2px solid #c89c76;
+    border-radius: 5px;
+}
+
+/* LETTER INSIDE ENVELOPE */
+
+.letter-inside {
+    position: absolute;
+    left: 10%;
+    bottom: 10px;
+    width: 80%;
+    height: 190px;
+    background: #fff8e8;
+    color: #895b4c;
+    font-family: cursive;
+    padding-top: 30px;
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+.letter-inside span {
+    font-size: 35px;
+}
+
+/* ENVELOPE FRONT */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #d6a77e;
+    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    z-index: 3;
+}
+
+/* ENVELOPE FLAP */
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #c9956e;
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top center;
+    transition: transform 0.9s ease;
+    z-index: 4;
+}
+
+/* PINK WAX SEAL */
+
+.wax-seal {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #b94c68;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    z-index: 5;
+    transition: opacity 0.3s;
+}
+
+/* ENVELOPE OPEN ANIMATION */
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.opened .wax-seal {
+    opacity: 0;
+}
+
+.envelope.opened .letter-inside {
+    transform: translateY(-100px);
+}
+
+/* OPEN LETTER BUTTON */
+
+#openEnvelope {
+    background: #a94e68;
+    color: white;
+    padding: 14px 30px;
+    font-family: cursive;
+}
+
+/* VINTAGE PAPER LETTER */
+
+.vintage-letter {
+    display: none;
+    max-width: 540px;
+    margin: 45px auto 20px;
+    padding: 35px 28px;
+    background-color: #f8edcf;
+
+    background-image:
+        radial-gradient(#d8c69e 0.6px, transparent 0.6px);
+
+    background-size: 12px 12px;
+
+    border: 1px solid #d5bd8d;
+    border-radius: 5px;
+
+    box-shadow:
+        0 8px 25px rgba(80, 45, 30, 0.2),
+        inset 0 0 35px rgba(173, 135, 75, 0.13);
+
+    text-align: left;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.vintage-letter.show-letter {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vintage-letter h2 {
+    color: #914c50;
+    font-family: cursive;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.vintage-letter p {
+    color: #684d3c;
+    font-family: cursive;
+    font-size: 17px;
+    line-height: 1.9;
+    text-align: left;
+}
+
+.letter-flower {
+    text-align: center;
+    font-size: 23px;
+    margin: 15px;
+}
+
+.letter-signature {
+    font-family: cursive;
+    color: #914c50;
+    text-align: right;
+    font-size: 19px;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+.vintage-letter button {
+    display: block;
+    margin: 25px auto 0;
+    background: #a94e68;
+    color: white;
+    font-family: cursive;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .letter-container > h1 {
+        font-size: 25px;
+    }
+
+    .envelope-stage {
+        height: 200px;
+    }
+
+    .vintage-letter {
+        padding: 25px 20px;
+    }
+
+    .vintage-letter p {
+        font-size: 16px;
+    }
+}
+.vintage-letter.show-letter {
+    animation: paperReveal 1s ease forwards;
+}
+
+@keyframes paperReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* PASSWORD PAGE BACKGROUND */
+
+body:has(.password-screen) {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ffe0ec, #f8b4ce, #ffd6e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* PASSWORD CARD */
+
+.password-screen {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    max-width: 400px;
+    margin: 25px auto;
+    padding: 40px 25px;
+    background: #fffaf2;
+    border: 3px solid white;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(150, 50, 90, 0.2);
+    animation: passwordAppear 1s ease;
+}
+
+.password-screen h1 {
+    color: #d63384;
+    font-size: 30px;
+}
+
+.password-screen p {
+    color: #a64d79;
+}
+
+.password-screen input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border: 2px solid #ffc0cb;
+    border-radius: 30px;
+    outline: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.password-screen button {
+    padding: 14px 35px;
+    background: linear-gradient(135deg, #ff69a6, #d63384);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.password-screen button:hover {
+    transform: scale(1.08);
+}
+
+/* FLOATING HEARTS */
+
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.floating-hearts span {
+    position: absolute;
+    bottom: -50px;
+    animation: floatHeart 8s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) { left: 10%; }
+.floating-hearts span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.floating-hearts span:nth-child(3) { left: 55%; animation-delay: 4s; }
+.floating-hearts span:nth-child(4) { left: 75%; animation-delay: 1s; }
+.floating-hearts span:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+@keyframes floatHeart {
+    from { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes passwordAppear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ROMANTIC MUSIC PLAYER */
+
+.music-player {
+    width: 90%;
+    max-width: 330px;
+    margin: 30px auto;
+    padding: 18px;
+    text-align: center;
+    background: #fffaf2;
+    border: 2px solid #ffc0cb;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(150, 50, 90, 0.15);
+}
+
+.music-player p {
+    color: #d63384;
+    font-weight: bold;
+}
+
+.music-player iframe {
+    max-width: 100%;
+    border: none;
+    border-radius: 12px;
+}

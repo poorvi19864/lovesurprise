@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little World ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Music -->
+    <audio id="loveSong" autoplay>
+        <source src="audio/love-song.wav" type="audio/wav">
+    </audio>
+
+    <!-- All website pages open inside this frame -->
+    <iframe
+        id="lovePages"
+        src="./proposal.html"
+        name="lovePages"
+        allow="autoplay">
+    </iframe>
+
+    <script>
+        const song = document.getElementById("loveSong");
+
+        song.play().catch(() => {
+            console.log("Autoplay was blocked by the browser.");
+        });
+    </script>
+
+</body>
+</html>

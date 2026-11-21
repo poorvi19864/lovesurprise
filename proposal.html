@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A little Surprise For You ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Hey Baby! ❤️</h1>
+
+        <p>I have a little question for you...</p>
+
+        <h2>Do you love me? 🥺</h2>
+
+        <div class="buttons">
+            <button id="yesBtn">YES ❤️</button>
+            <button id="noBtn">NO 🙈</button>
+        </div>
+
+        <h2 id="message"></h2>
+
+    </div>
+
+    <script>
+        if (sessionStorage.getItem("loveUnlocked") !== "true") {
+            window.location.replace("index.html");
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

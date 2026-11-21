@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter For You 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="letter-page">
+
+    <div class="letter-container">
+
+        <h1>A Little Something For You ❤️</h1>
+        <p class="letter-subtitle">A letter written from my heart...</p>
+
+        <!-- ENVELOPE -->
+        <div class="envelope-stage">
+
+            <div class="envelope" id="envelope">
+
+                <div class="letter-inside">
+                    <span>💗</span>
+                    <p>To My Favourite Person</p>
+                </div>
+
+                <div class="envelope-back"></div>
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-front"></div>
+
+                <div class="wax-seal">♥</div>
+
+            </div>
+
+        </div>
+
+        <button id="openEnvelope">
+            Open My Letter 💌
+        </button>
+
+        <!-- THE LETTER -->
+        <div class="vintage-letter" id="vintageLetter">
+
+            <div class="letter-flower">🌷 ✨ 🌷</div>
+
+            <h2>My Dearest Love,</h2>
+
+            <p>
+                I don't even know where to begin,
+                because there are so many things
+                I want to tell you.
+            </p>
+
+            <p>
+                You make my ordinary days feel
+                extraordinary. Even the smallest
+                moments become beautiful memories
+                when they are with you.
+            </p>
+
+            <p>
+                Thank you for being my happiness,
+                my smile, and my favourite person.
+                You have a special place in my heart
+                that nobody else could ever fill.
+            </p>
+
+            <p>
+                I hope we create a thousand more
+                memories, share countless laughs,
+                and keep choosing each other every
+                single day.
+            </p>
+
+            <p>
+                If I could choose again,
+                I'd still choose you. ❤️
+            </p>
+
+            <div class="letter-signature">
+                Forever yours,
+                <br>
+                Your favourite person 💗
+            </div>
+
+            <div class="letter-flower">♡ ♡ ♡</div>
+
+            <button onclick="window.location.href='final.html'">
+    Read One Last Thing ❤️
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='memories.html'">
+    Back to Our Memories 💗
+</button>
+        </div>
+
+    </div>
+
+    <script>
+        const openButton = document.getElementById("openEnvelope");
+        const envelope = document.getElementById("envelope");
+        const letter = document.getElementById("vintageLetter");
+
+        openButton.addEventListener("click", function() {
+
+            envelope.classList.add("opened");
+
+            openButton.style.display = "none";
+
+            setTimeout(function() {
+                letter.classList.add("show-letter");
+            }, 900);
+
+        });
+    </script>
+
+</body>
+</html>
